@@ -1,0 +1,11 @@
+HEADER    HYDROLASE(O-GLYCOSYL)                   29-SEP-92   103L              
+HETATM 1272 CL    CL A 173      42.890  16.412   2.195  1.00  3.47          CL  
+HETATM 1273 CL    CL A 178      32.255  15.591  23.788  0.50  1.66          CL  
+HETATM 1274  C1  BME A 900      32.522   1.106  19.057  1.00 32.83           C  
+HETATM 1275  C2  BME A 900      32.068   1.442  17.640  1.00 20.96           C  
+HETATM 1276  O1  BME A 900      33.748   1.707  19.337  1.00 20.68           O  
+HETATM 1277  S2  BME A 900      33.232   0.728  16.423  1.00 66.31           S  
+CONECT 1274 1275 1276                                                           
+CONECT 1275 1274 1277                                                           
+CONECT 1276 1274                                                                
+CONECT 1277 1275                                                                

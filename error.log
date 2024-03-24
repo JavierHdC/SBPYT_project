@@ -1,0 +1,8 @@
+/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/Bio/PDB/StructureBuilder.py:89: PDBConstructionWarning: WARNING: Chain A is discontinuous at line 3680.
+  warnings.warn(
+/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/Bio/PDB/StructureBuilder.py:89: PDBConstructionWarning: WARNING: Chain B is discontinuous at line 3725.
+  warnings.warn(
+/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/Bio/PDB/StructureBuilder.py:89: PDBConstructionWarning: WARNING: Chain A is discontinuous at line 3770.
+  warnings.warn(
+/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/Bio/PDB/StructureBuilder.py:89: PDBConstructionWarning: WARNING: Chain B is discontinuous at line 3863.
+  warnings.warn(

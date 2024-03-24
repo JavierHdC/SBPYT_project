@@ -1,0 +1,1 @@
+#Get 9 nearest aminoacids for each aminoacid in the dataset

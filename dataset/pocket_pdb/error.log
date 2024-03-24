@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "/Users/allalelhommad/PYT/SBPYT_project/dataset/pocket_pdb/../../extract_features.py", line 3, in <module>
+    from Bio.PDB import PDBParser
+  File "/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/Bio/PDB/__init__.py", line 17, in <module>
+    from .PDBParser import PDBParser
+  File "/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/Bio/PDB/PDBParser.py", line 12, in <module>
+    import numpy
+  File "/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/numpy/__init__.py", line 157, in <module>
+    from . import random
+  File "/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/numpy/random/__init__.py", line 180, in <module>
+    from . import _pickle
+  File "/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/site-packages/numpy/random/_pickle.py", line 1, in <module>
+    from .mtrand import RandomState
+  File "numpy/random/mtrand.pyx", line 1, in init numpy.random.mtrand
+  File "bit_generator.pyx", line 40, in init numpy.random.bit_generator
+  File "/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/secrets.py", line 18, in <module>
+    from hmac import compare_digest
+  File "/Users/allalelhommad/miniconda3/envs/MyPyth1/lib/python3.9/hmac.py", line 8, in <module>
+    import _hashlib as _hashopenssl
+KeyboardInterrupt

@@ -19,7 +19,7 @@ import numpy as np
 
 
 class ProteinFeatures:
-    
+    dssp_direction = '/usr/local/bin/mkhssp' #/opt/homebrew/bin/mkdssp
     
     def __init__(self, pdb_file):
         self.pdb_file = pdb_file
@@ -85,7 +85,7 @@ class ProteinFeatures:
 
         # Run mkdssp as subprocess to generate DSSP output file
         with open('dssp_output.txt', 'w') as output_file:
-            dssp_process = subprocess.Popen(['/opt/homebrew/bin/mkdssp', '--calculate-accessibility', 'dataset/182l.pdb'], stdout=output_file, stderr=subprocess.PIPE)
+            dssp_process = subprocess.Popen([self.dssp_direction, '--calculate-accessibility', 'dataset/182l.pdb'], stdout=output_file, stderr=subprocess.PIPE)
             _, stderr = dssp_process.communicate()
 
             # Check for errors
@@ -112,19 +112,13 @@ class ProteinFeatures:
         mapping = {'.': [1, 0, 0], '-': [0, 1, 0], '+': [0, 0, 1]}
         encoded_chirality = np.array([mapping[chirality] for chirality in chirality_data])
 
-        
-        
         # Remove the file
         os.remove('dssp_output.txt')
 
-        return secondary_structure, aminoacid_accesibiliity, psi_angles, phi_angles, total_contact,encoded_chirality
+        return secondary_structure, aminoacid_accesibiliity, psi_angles, phi_angles, total_contact, encoded_chirality
 
         
         
-
-    
-
-
 
 
 # Usage example

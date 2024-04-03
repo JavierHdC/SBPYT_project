@@ -1,20 +1,5 @@
-"""
-Extract Protein Features Script
-
-This script extracts protein features from PDB files, including secondary structure, solvent accessibility,
-phi and psi angles, and whether residues are in a specified pocket. It utilizes the BioPython library for
-structural biology computations.
-
-Usage:
-    python extract_protein_features.py --pdb_dir <pdb_directory> --pocket_dir <pocket_directory>
-
-Arguments:
-    --pdb_dir     The directory containing PDB files.
-    --pocket_dir  The directory containing pocket PDB files.
-"""
-
-from Bio.PDB import PDBParser, NeighborSearch, Selection, is_aa
-import pandas as pd
+from Bio.PDB import PDBParser, NeighborSearch, Selection, is_aa 
+import pandas as pd 
 import subprocess
 from Bio.PDB.MMCIF2Dict import MMCIF2Dict
 import os
@@ -25,7 +10,7 @@ import os
 import numpy as np
 from Bio.PDB.DSSP import DSSP
 from glob import glob
-import argparse
+
 
 
 # Set the working directory
@@ -201,6 +186,16 @@ def matched_pdb_files(pdb_dir, pocket_dir):
     return matched_pdb_files, matched_pocket_files
 
 
+# def extract_features_for_matched_pdb_files(test_matched_files):
+#     all_features_dict = {}
+#     for pdb_file, pocket_pdb_file in test_matched_files:
+#         pf = ProteinFeatures(pdb_file, pocket_pdb_file)
+#         features_list = pf.extract_features()  # This is a list of dictionaries
+#         for features in features_list:
+#             # Assuming 'PDB_ID' uniquely identifies each feature set, use it as the key
+#             key = features['PDB_ID']
+#             all_features_dict[key] = features
+#     return all_features_dict
 def extract_features_for_matched_pdb_files(matched_pdb_files):
     all_features_dict = {}
     for pdb_file, pocket_pdb_file in matched_pdb_files:
@@ -224,30 +219,12 @@ def extract_features_for_matched_pdb_files(matched_pdb_files):
     return all_features_dict
 
 
-def main(pdb_dir, pocket_dir):
-    """
-    Main function to execute the feature extraction process.
-
-    Parameters:
-        pdb_dir (str): Directory containing the raw PDB files.
-        pocket_dir (str): Directory containing the pocket PDB files.
-    """
-    # Changing the working directory to the script's current directory can be problematic
-    # when running the script from a different directory or in different environments.
-    # It's recommended to use relative or absolute paths provided by the user and not change the working directory.
-
-    matched_pdb_files_list, matched_pocket_files_list = matched_pdb_files(pdb_dir, pocket_dir)
-    matched_files = list(zip(matched_pdb_files_list, matched_pocket_files_list))
-    features_dict = extract_features_for_matched_pdb_files(matched_files)
-    print(features_dict)
-
-if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Extract features from PDB files for specified protein pockets.")
-    parser.add_argument('--pdb_dir', required=True, help="Directory containing the raw PDB files.")
-    parser.add_argument('--pocket_dir', required=True, help="Directory containing the pocket PDB files.")
-
-    args = parser.parse_args()
-
-    main(args.pdb_dir, args.pocket_dir)
+# Example of how to call the matched_pdb_files function
+pdb_dir = '/Users/javierherranzdelcerro/Desktop/PYT_SBI/SBPYT_project/raw_pdb'
+pocket_dir = '/Users/javierherranzdelcerro/Desktop/PYT_SBI/SBPYT_project/dataset/pocket_pdb'
+matched_pdb_files, matched_pocket_files = matched_pdb_files(pdb_dir, pocket_dir)
+matched_files = list(zip(matched_pdb_files, matched_pocket_files))
+features_dict = extract_features_for_matched_pdb_files(matched_files)
+print(features_dict)
 
 
